@@ -75,9 +75,17 @@ mkdir -p $p
 cp -R $build/* $p
 
 unset GIT_DIR # unset git dir or it will mess with goinstall
-echo "-----> Running: go get -tags heroku ./..."
+
+opts="-tags heroku"
+if [ -f $build/.gorace ]
+then
+opts="$opts -race"
+fi
+
+cmd="go get $opts ./..."
+echo "-----> Running: $cmd"
 cd $p
-go get -tags heroku ./...
+$cmd
 
 mkdir -p $build/bin
 mv $GOPATH/bin/* $build/bin
