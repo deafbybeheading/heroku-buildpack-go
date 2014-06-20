@@ -131,7 +131,7 @@ cp -R $build/* $p
 find "$build" -type f
 
 # hack to pull in vendored libpq-dev headers
-export CGO_CFLAGS="$build/vendor/include/postgresql"
+export CGO_CFLAGS="-I$build/vendor/include/postgresql"
 
 unset GIT_DIR # unset git dir or it will mess with goinstall
 cd $p
