@@ -128,8 +128,6 @@ p=$GOPATH/src/$name
 mkdir -p $p
 cp -R $build/* $p
 
-find "$build" -type f
-
 # hack to pull in vendored libpq-dev headers
 export CGO_CFLAGS="-I$build/vendor/include/postgresql"
 
