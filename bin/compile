@@ -128,18 +128,8 @@ p=$GOPATH/src/$name
 mkdir -p $p
 cp -R $build/* $p
 
-# allow apps to specify cgo flags
-env_dir="$3"
-if [ -d "$env_dir" ]
-then
-    for cgo_opt in CGO_CFLAGS CGO_CPPFLAGS CGO_CXXFLAGS CGO_LDFLAGS
-    do
-        if [ -f "$env_dir/$cgo_opt" ]
-        then
-            export "$cgo_opt='$(cat "$env_dir/$cgo_opt")'"
-        fi
-    done
-fi
+# hack to pull in vendored libpq-dev headers
+export CGO_CFLAGS="$build/vendor/include/postgresql"
 
 unset GIT_DIR # unset git dir or it will mess with goinstall
 cd $p
