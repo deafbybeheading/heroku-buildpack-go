@@ -129,18 +129,8 @@ mkdir -p $p
 cp -R $build/* $p
 
 # allow apps to specify cgo flags and set up /app hard link so things like CGO_CFLAGS="-I/app/..." work
-ln -s $build /app/code
-echo "in /app:"
-ls -l /app
-echo "in /app/code:"
-ls -l /app/code
-echo "in /app/code/vendor:"
-ls -l /app/code/vendor
-echo "in /app/code/vendor/include:"
-ls -l /app/code/vendor/include
-echo "in /app/code/vendor/include/postgresql:"
-ls -l /app/code/vendor/include/postgresql
-
+mkdir /app/code
+cp -R $build/* /app/code
 
 env_dir="$3"
 if [ -d "$env_dir" ]
