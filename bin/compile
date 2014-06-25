@@ -133,6 +133,10 @@ ln -s $build /app
 echo "symlink success: $?"
 echo "in /app:"
 ls -l /app
+echo "in /app/vendor:"
+ls -l /app/vendor
+echo "in /app/vendor/include:"
+ls -l /app/vendor/include
 echo "in /app/vendor/include/postgresql:"
 ls -l /app/vendor/include/postgresql
 env_dir="$3"
