@@ -136,6 +136,10 @@ echo "in /app/code:"
 ls -l /app/code
 echo "in /app/code/vendor:"
 ls -l /app/code/vendor
+echo "in /app/code/vendor/include:"
+ls -l /app/code/vendor/include
+echo "in /app/code/vendor/include/postgresql:"
+ls -l /app/code/vendor/include/postgresql
 
 
 env_dir="$3"
