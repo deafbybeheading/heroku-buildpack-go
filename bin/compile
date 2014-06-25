@@ -145,6 +145,8 @@ then
         fi
     done
 fi
+echo "CGO env is:"
+env | grep CGO
 
 unset GIT_DIR # unset git dir or it will mess with goinstall
 cd $p
