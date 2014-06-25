@@ -131,6 +131,8 @@ cp -R $build/* $p
 # allow apps to specify cgo flags and set up /app hard link so things like CGO_CFLAGS="-I/app/..." work
 mkdir /app/code
 cp -R $build/* /app/code
+echo "files are:"
+ls -l /app/code/vendor/include/postgresql
 
 env_dir="$3"
 if [ -d "$env_dir" ]
